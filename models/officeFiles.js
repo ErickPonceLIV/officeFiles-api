@@ -1,14 +1,18 @@
 import mongoose from 'mongoose'
 
-const documentSchema = new mongoose.Schema({
-  year: { type: String, required: true }, // Se almacena como String ya que podría contener caracteres adicionales en ciertos formatos
-  management: { type: String, required: true }, // Se almacena la dirección a la que pertenece el archivo
-  directorate: { type: String, required: true }, // Se almacena el departamento donde esta ubicado el archivo
-  documentId: { type: String, required: true, unique: true }, // Identificador único para el documento
+const FilesSchema = new mongoose.Schema({
+  year: { type: String, required: true },
+  management: { type: String, required: true },
+  directorate: { type: String, required: true },
+  documentSerial: { type: String, required: true, unique: true },
   name: { type: String, required: true },
-  preservation: { type: String, required: true }, // Almacenado como String ya que indica la duración de conservación
-  status: [{ type: String }], // Almacena un array de strings para los estados del documento
-  file: [{ type: String }] // Almacena un array de strings para clasificaciones de archivo
+  preservation: { type: String, required: true },
+  status: [{ type: String }],
+  file: [{ type: String }],
+  isActive: { type: Boolean, default: true }, // Indicador de si el documento está activo
+  newFile: [{ type: Boolean, required: true }] //
 })
 
-export default mongoose.model('Document', documentSchema)
+const File = mongoose.model('File', FilesSchema)
+
+export default File
