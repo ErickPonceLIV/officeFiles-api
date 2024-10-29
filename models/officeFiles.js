@@ -9,8 +9,7 @@ const FilesSchema = new mongoose.Schema({
   preservation: { type: String, required: true },
   status: [{ type: String }],
   file: [{ type: String }],
-  isActive: { type: Boolean, default: true }, // Indicador de si el documento está activo
-  newFile: [{ type: Boolean, required: true }] //
+  isActive: { type: Boolean, default: true } // Indicador de si el documento está activo
 })
 
 const File = mongoose.model('File', FilesSchema)
