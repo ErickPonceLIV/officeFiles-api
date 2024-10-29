@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 
 dotenv.config() // leer las variables de entorno
 
-const connectDB = async () => {
+const connect = async () => {
   try {
     mongoose.connect(process.env.DB_CONNECT_URI) // Nos conecta a la base de datos
     const { connection } = await mongoose // traemos la conexión de mongoose
@@ -15,4 +15,4 @@ const connectDB = async () => {
   }
 }
 
-export { connectDB }
+export { connect }

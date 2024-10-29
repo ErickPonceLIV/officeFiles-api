@@ -11,7 +11,7 @@ api.use(express.json())
 // Aqui van las rutas
 
 // Nos conectamos a la base de datos y luego levantamos el servidor
-connect.then(() => {
+connect().then(() => {
   api.listen(PORT, () => {
     console.log(`API escuchando en http://localhost:${PORT}`)
   })
