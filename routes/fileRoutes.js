@@ -6,4 +6,6 @@ import * as fileController from '../controllers/filesController.js'
 const fileRoutes = express.Router()
 
 // Defino las rutas
-fileRoutes.post('/file', fileController.createFile)
+fileRoutes.post('/files', fileController.createFile)
+
+export default fileRoutes
