@@ -14,9 +14,27 @@ const createFile = async (req, res) => {
 }
 
 // READ
+// Obtener todos los archivos
+const getFiles = async (req, res) => {
+  try {
+    const files = await File.find()
+    res.status(200).json(files)
+  } catch (error) {
+    res.status(400).json({ message: error.message })
+  }
+}
+// Obtener un archivo por id
+const getFileById = async (req, res) => {
+  try {
+    const file = await File.findById(req.params.id)
+    res.status(200).json(file)
+  } catch (error) {
+    res.status(400).json({ message: error.message })
+  }
+}
 
 // UPDATE
 
 // DELETE
 
-export { createFile }
+export { createFile, getFiles, getFileById }
